@@ -136,16 +136,17 @@ type FSharpTreeBuilderBase(lexer: ILexer, document: IDocument, lifetime: Lifetim
 
         x.AdvanceToStart(lid.Head.idRange)
         for id in lid do
-            marks.Push(struct {| Mark = x.Mark(); Range = id.idRange |})
+            marks.Push(struct (x.Mark(), id.idRange))
 
-        let lastIdRangeAndMark = marks.Pop()
-        x.Builder.Drop(lastIdRangeAndMark.Mark)
+        let struct (mark, range) = marks.Pop()
+        x.Builder.Drop(mark)
 
         for IdentRange idRange in lid do
             if marks.Count > 0 then
-                x.Done(idRange, marks.Pop().Mark, ElementType.EXPRESSION_REFERENCE_NAME)
+                let struct (mark, _) = marks.Pop()
+                x.Done(idRange, mark, ElementType.EXPRESSION_REFERENCE_NAME)
 
-        x.AdvanceToEnd(lastIdRangeAndMark.Range)
+        x.AdvanceToEnd(range)
 
     member x.ProcessNamedTypeReference(lid: Ident list) =
         x.ProcessNamedTypeReference(lid, [], None, None, false)
