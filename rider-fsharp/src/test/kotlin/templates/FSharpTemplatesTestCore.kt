@@ -13,7 +13,7 @@ abstract class FSharpTemplatesTestCore : RiderTemplatesTestCoreBase() {
 
     fun classlibCoreTemplate() {
         var templateId = ProjectTemplateIds.Core.fsharp_classLibrary
-        if (testMethod.environment.coreVersion.value == CoreVersion.DOT_NET_CORE_3_0.value)
+        if (testMethod.environment.coreVersion.value == CoreVersion.DOT_NET_CORE_2_1.value)
             templateId = ProjectTemplateIds.Core.fsharp_classLibrary
 
         val projectName = "ClassLibrary"
@@ -27,7 +27,7 @@ abstract class FSharpTemplatesTestCore : RiderTemplatesTestCoreBase() {
     @Test
     fun classlibNetCoreAppTemplate() {
         var templateId = ProjectTemplateIds.Core.fsharp_classLibrary
-        if (testMethod.environment.coreVersion.value == CoreVersion.DOT_NET_CORE_3_0.value)
+        if (testMethod.environment.coreVersion.value == CoreVersion.DOT_NET_CORE_2_1.value)
             templateId = ProjectTemplateIds.Core.fsharp_classLibrary
 
         val projectName = "ClassLibrary"
@@ -40,7 +40,7 @@ abstract class FSharpTemplatesTestCore : RiderTemplatesTestCoreBase() {
 
     fun consoleAppCoreTemplate() {
         var templateId = ProjectTemplateIds.Core.fsharp_consoleApplication
-        if (testMethod.environment.coreVersion.value == CoreVersion.DOT_NET_CORE_3_0.value)
+        if (testMethod.environment.coreVersion.value == CoreVersion.DOT_NET_CORE_2_1.value)
             templateId = ProjectTemplateIds.Core.fsharp_consoleApplication
 
         val projectName = "ConsoleApplication"
@@ -80,7 +80,7 @@ abstract class FSharpTemplatesTestCore : RiderTemplatesTestCoreBase() {
     @Test
     fun xUnitCoreTemplate() {
         var templateId = ProjectTemplateIds.Core.fsharp_xUnit
-        if (testMethod.environment.coreVersion.value == CoreVersion.DOT_NET_CORE_3_0.value)
+        if (testMethod.environment.coreVersion.value == CoreVersion.DOT_NET_CORE_2_1.value)
             templateId = ProjectTemplateIds.Core.fsharp_xUnit
         
         val projectName = "UnitTestProject"
